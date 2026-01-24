@@ -6,19 +6,23 @@
 # Opcion 4 : Mostrar el producto de precio mas bajo
 # Opcion 5 : Salir
 
+#productos = []
+
 msg = """
+    ============= BIENVENIDOS AL SISTEMA ================
     Ingrese una opcion:
 
-    1. Sumar 2 numeros
-    2. Crear una coleccion de productos para un mercado
-    3. Agregar un nuevo producto a la coleccion
-    4. Mostrar el producto de precio mas bajo
-    5. Salir
+    1. Sumar 2 numeros.
+    2. Crear una coleccion de productos para un mercado.
+    3. Agregar un nuevo producto a la colección.
+    4. Mostrar el producto de precio mas bajo.
+    5. Salir.
+    ====================================================
     """
 
 def sumarDosNumeros():
-    num1 = int(input("Ingrese el primer numero: "))
-    num2 = int(input("Ingrese el segundo numero: "))
+    num1 = int(input("Ingrese el primer número: "))
+    num2 = int(input("Ingrese el segundo número: "))
     suma = num1 + num2
     print(f"La suma de {num1} y {num2} es: {suma}")
 
@@ -43,7 +47,10 @@ def AgregarNuevoProducto(productos):
 def MostrarProductoPrecioMasBajo(productos):
     if productos:
         producto_mas_bajo = min(productos, key=lambda x: x["precio"])
-        print(f"El producto de precio más bajo es: {producto_mas_bajo}")
+        print(
+            f"El producto de precio más bajo es: "
+            f"{producto_mas_bajo['nombre']} - S/ {producto_mas_bajo['precio']}"
+        )
     else:
         print("No hay productos en la colección.")
 
@@ -53,7 +60,6 @@ while True:
     if opcion == 1:
         sumarDosNumeros()
     elif opcion == 2:
-        productos = []
         productos = crearColeccionProductos()
     elif opcion == 3:
         AgregarNuevoProducto(productos)
